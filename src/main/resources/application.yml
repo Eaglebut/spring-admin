@@ -1,0 +1,9 @@
+spring:
+  # id приложения
+  application:
+    name: spring-admin
+
+server:
+  port: 8081
+
+
