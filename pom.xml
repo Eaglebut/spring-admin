@@ -14,7 +14,7 @@
     <name>spring-admin</name>
     <description>spring-admin</description>
     <properties>
-        <java.version>17</java.version>
+        <java.version>19</java.version>
         <spring-boot-admin.version>3.0.0-M4</spring-boot-admin.version>
     </properties>
     <dependencies>
@@ -42,6 +42,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
         </plugins>
+        <finalName>${project.artifactId}</finalName>
     </build>
 
 </project>

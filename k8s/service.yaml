@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spring-admin
+  labels:
+    app: spring-admin
+    coreApp: data-miner
+    type:
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: spring-admin
+  template:
+    metadata:
+      labels:
+        app: spring-admin
+    spec:
+      containers:
+        - name: spring-admin
+          image: eaglebut/spring_admin:0.0.1
+          ports:
+            - containerPort: 8081
+          env:
+            - name: spring.webflux.base-path
+              value: /spring-admin
+            - name: logging.level.org.springframework
+              value: trace
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: spring-admin
+  labels:
+    name: spring-admin-service
+spec:
+  selector:
+    app: spring-admin
+  ports:
+    - protocol: TCP
+      port: 8081
+      targetPort: 8081
